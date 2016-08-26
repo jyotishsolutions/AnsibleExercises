@@ -1,0 +1,9 @@
+jjkkkkkkkkkkkkkk---
+# command to run this apt: pkg=apache2 state=installed update_cache=true
+- hosts: controller
+  sudo: yes
+  tasks:
+  - name: Install apache
+    #apt: pkg=apache2 state=installed/present/absent update_cache=true
+    apt: pkg=apache2 state=present update_cache=true
+ 
