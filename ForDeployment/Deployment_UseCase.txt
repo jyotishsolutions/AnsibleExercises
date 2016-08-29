@@ -1,0 +1,34 @@
+
+
+Build an Apache Web Server
+Deploy the webserver with the ansible user
+Ansible user needs sudo
+Connection type ssh rather than paramiko
+Leave gathering of facts no
+
+-- Info Needed:
+   - apache web server package name
+   - distribution running on
+   - apache version
+   - need the web server directory customized
+   - what is the site name
+   
+ --What needs to be done
+   - install the apache web server on the remote systems
+   - create a the web server directory
+   - web server directory has proper owhership
+   - configuration of apache  
+	- copy the httpd configuration file
+	- set up the vhost directory
+	- add any ssl key if needed
+	- add the vhost template for the default site
+      start the apache servicead 
+	add/enable any moduels needed 
+	- mysql/
+	- ssl
+	- mod/rewrite
+	- restat the apache servie
+   
+  - Test
+    - Using telnet service is running   
+	- waitfor port 80 to be listening
