@@ -1,0 +1,19 @@
+---
+# host details and configuring the controller and make sure you split the main file in roles.
+- hosts: controller
+  user: test
+  sudo: yes
+  connection: ssh
+  gather_facts: yes
+  pre_taks:
+  - name: When did the Role Started
+    raw: date > /home/test/startofrole.log
+
+  roles:
+  - { role: redhat_webservers, when: "ansible_os_family == 'RedHat'"}
+  - { role: debian_webservers, when: "ansible_os_family == 'debian;"}
+
+  post_tasks:
+  - name: when did the role end
+    raw: date > /home/test/eofofrole.log
+
