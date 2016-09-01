@@ -1,0 +1,22 @@
+---
+# this yml file will display the functionality of vars, vars file and vars promopt
+- hosts: controller
+  sudo: yes
+  gather_facts: no
+  connection: ssh
+  vars_files:
+  - vars.yml
+  vars:
+    playbook_versions: 2.2.1
+  vars_prompt:
+  - name: packagename
+    prompt: please enter the package name
+    private: no 
+  - name: action
+    prompt: please enter the action { present/absent}
+    private: no
+  tasks:
+  - name : installation of {{packagename}}
+    apt: pkg={{packagename}} state={{action}} update_cache=true
+
+   

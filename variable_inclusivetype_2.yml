@@ -1,0 +1,11 @@
+---
+# command to run this ansible-playbook -s <<playbook-file_name>> 
+- hosts: controller
+  sudo: yes
+  vars_files:
+  - vars.yml
+  tasks:
+  - name: Install {{package_name}}
+    #apt: pkg=apache2 state=installed/present/absent update_cache=true
+    apt: pkg={{package_name}} state=present update_cache=true
+ 
